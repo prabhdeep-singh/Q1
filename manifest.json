@@ -1,0 +1,33 @@
+
+{
+  "manifest_version": 2,
+
+  "name": "Assignment 1 search and highlight",
+  "description": "This extension for search and highlight",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+			"scripts": ["background.js"], 
+			"persistent": false
+		}, 
+		
+    "content_scripts" : [
+  {
+   "matches" : ["http://*/*", "https://*/*", "file:///*"],
+   "js" : ["content_script.js"],
+   "css" : ["custom.css"],
+   "run_at" : "document_idle",
+   "all_frames" : false
+  }
+ ],	
+  
+  "permissions": [
+    "activeTab", "tabs", "http://*/*", "https://*/*"
+	
+  ]
+}
+
